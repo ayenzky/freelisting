@@ -2,6 +2,7 @@
   "name": "rootssite",
   "description": "",
   "dependencies": {
+    "algoliasearch": "^3.24.0",
     "autoprefixer-stylus": "0.8.x",
     "axis": "0.5.x",
     "coffee-script": "^1.0.0",
@@ -12,10 +13,10 @@
     "jstransformer-marked": "^1.0.0",
     "marked": "0.3.x",
     "moment": "^2.10.6",
+    "roots": "4.0.1",
     "roots-collections": "^0.3.0",
     "roots-records": "^0.5.1",
     "rupture": "0.6.x",
-    "stylus": "^0.54.5",
-    "roots": "4.0.1"
+    "stylus": "^0.54.5"
   }
 }
