@@ -3,12 +3,33 @@
 normalize-css()
 base()
 
+
 body
-  padding: 0px
-  font-family: "Open sans", Arial, sans-serif
+  font 14px/1.6 'Roboto', sans-serif
+  font-weight 400
 
-header, .footer
-  text-align:center
+h1, h2 ,h3 ,h4, h5
+  font-family 'Roboto', sans-serif
 
-header
-  padding: 5em 0em
+.container
+  width 100%
+  .row
+    margin-left 0
+    margin-right 0
+
+nav
+  background  #CB356B  /* fallback for old browsers */
+  background  -webkit-linear-gradient(to right, #BD3F32, #CB356B)  /* Chrome 10-25, Safari 5.1-6 */
+  background  linear-gradient(to right, #BD3F32, #CB356B) /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  .brand-logo
+    font-family 'Roboto', sans-serif
+    font-size 1.25em
+
+#cd-main-nav
+  ul
+    li
+      display block
+      width 100%
+      line-height normal
+      a
+        color #222
