@@ -59,7 +59,7 @@ $(".lists a.details").click(function(e){
         $('.preloader-wrapper').remove();
       },
       complete: function(){
-        alert ("Close");
+        console.log ("Close");
       }
    });
 })
