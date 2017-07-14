@@ -46,4 +46,68 @@ jQuery(document).ready(function($){
       }
     }
   }
+
+
+$(".lists a.details").click(function(e){
+   e.preventDefault();
+   $('.modal-content').append('<div class="loader"><div class="preloader-wrapper small active"><div class="spinner-layer spinner-blue"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div><div class="spinner-layer spinner-red"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div><div class="spinner-layer spinner-yellow"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div><div class="spinner-layer spinner-green"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div></div></div>');
+   var dt = $(this).attr("data-target");
+   $("#" + dt).modal({
+      dismissible: true,
+      inDuration: 800,
+      ready: function(modal, trigger){
+        $('.preloader-wrapper').remove();
+      },
+      complete: function(){
+        alert ("Close");
+      }
+   });
+})
+
+ $('select').material_select();
+ $('.lever').click(function(){
+    if($('input[type="checkbox"]').is(':checked')){
+      console.log(false)
+     }
+    else{
+    console.log(false)
+     }
+})
+
+});
+
+if ($('.isotope-container').length>0) {
+  $(window).load(function() {
+
+   $('.isotope-container').fadeIn();
+
+    var $container = $('.isotope-container').isotope({
+      itemSelector: '.isotope-item',
+      layoutMode: 'masonry',
+      transitionDuration: '0.6s',
+      initLayout:true
+    });
+
+    $container.imagesLoaded( function(){
+      $container.isotope({
+           animationOptions: {
+           duration: 750,
+           easing: 'ease-in-out',
+           queue: true,
+           initLayout: true
+         }
+      });
+    });
+  });
+};
+
+$( '#lazyjson' ).lazyjson({
+    templatePrefix: 'template-',
+    pagination: {
+      lazyLoad: true
+    },
+    api: {
+        uri: '/data/free_listing.json',
+        forceJSONP: true
+    }
 });

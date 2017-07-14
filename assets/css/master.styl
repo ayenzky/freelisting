@@ -11,6 +11,10 @@ body
 h1, h2 ,h3 ,h4, h5
   font-family 'Roboto', sans-serif
 
+h1
+  font-weight 100
+  text-transform uppercase
+
 .container
   width 100%
   .row
@@ -25,6 +29,38 @@ nav
     font-family 'Roboto', sans-serif
     font-size 1.25em
 
+.clearFx
+  clear both
+  position relative
+
+.mt-16
+  margin-top 16px
+.mt-24
+  margin-top 24px
+.mt-32
+  margin-top 32px
+.mt-48
+  margin-top 48px
+.mt-52
+  margin-top 52px
+
+.mb-16
+  margin-bottom 16px
+.mb-24
+  margin-bottom 24px
+.mb-32
+  margin-bottom 32px
+.mb-48
+  margin-bottom 48px
+.mb-52
+  margin-bottom 52px
+
+h1
+  font-size 3em
+
+img
+  max-width 100%
+
 #cd-main-nav
   ul
     li
@@ -33,3 +69,54 @@ nav
       line-height normal
       a
         color #222
+
+.listing
+  .col.isotope-item
+    width 250px
+  .list
+    box-shadow 4px 5px 5px #f4f4f4
+    -webkit-box-shadow 4px 5px 5px #f4f4f4
+    transition 400ms ease
+    .list-thumbnail
+      overflow hidden
+      img
+        -webkit-transition -webkit-transform 200ms ease-in-out
+        transition -webkit-transform 200ms ease-in-out
+        transition transform 200ms ease-in-out
+        -webkit-transition -webkit-transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out
+        transition transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out
+    &.list:hover
+      box-shadow 4px 10px 10px #eee
+      -webkit-box-shadow 4px 10px 10px #eee
+      img
+        -webkit-transform: scale(1.07)
+        transform: scale(1.07)
+    .list-title
+      padding 10px
+      a
+        color #bd3f32
+        text-transform uppercase
+      .blurb
+        color #607D8B
+        font-size 13px
+
+.modal
+  .modal-content
+    position relative
+    padding 0px
+    .loader
+      width 36px
+      position absolute
+      left 0
+      right 0px
+      top 40%
+      margin:auto;
+    .row
+      margin-bottom 0px
+      .l6
+        padding-top 16px
+        padding-bottom 16px
+        position relative
+        &:first-child
+          padding 0px
+

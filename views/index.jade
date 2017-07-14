@@ -3,26 +3,86 @@ extends layout
 block content
   .container
     .row
-      .col.l12
-        div
-          input#search-input(placeholder='Search for products')
-          // We use a specific placeholder in the input to guides users in their search.
+      .col.l12.mt-24
+        .row
+          .col.l3
+            select
+              option(value='', disabled='', selected='') Category
+              option(value='accountants') Accountants
+              option(value='advertising') Advertising
+              option(value='architects') Architects
+              option(value='artists') Artists
+          .col.l9
+            div
+              input#search-input(placeholder='Search for products')
+              // We use a specific placeholder in the input to guides users in their search.
         #hits
         #pagination
-        .results
-          ul#users
+        #results
+          .isotope-container
 
     .row
-      .col.l12
+      .col.l12.clear
         h1.title Featured List
-      .col.l12
-        .featured-listing
+      .clearFx
+      .featured-listing.listing
+        .isotope-container
+          each featured in listing(records.freelisting.pages)
+            .featured-list.col.l3.isotope-item.mb-16
+              .list
+                .list-thumbnail
+                  a.details(href="http://" + featured.web, target="_blank")
+                    img(src= featured.smallimg)
+                .list-title
+                  a.list-link(href="http://" + featured.web, target="_blank")= featured.title
+                  .blurb= featured.shordesc
 
 
     .row
       .col.l12
         h1.title Listing
       .col.l12
+      .clearFx
+      .listing
+        .isotope-container
+          - var i = 0;
+          - var e = 0;
+          each list in listing(records.freelisting.pages)
+            .lists.col.l3.isotope-item.mb-16
+              .list
+                .list-thumbnail
+                  a.details(href="#", data-target="modal" + (i++))
+                    img(src= list.smallimg)
+                .list-title
+                  a.list-link(href="#")= list.title
+                  .blurb= list.shortdesc
+              // Modal Structure
+              .modal(id="modal" + (e++))
+                .modal-content
+                  .row
+                    .col.l6
+                      .banner
+                        img(src= list.banner)
+                    .col.l6
+                      .switch.right.mb-16
+                        | Show All:
+                        label
+                          input(type='checkbox')
+                          span.lever
+                      .clearFx
+                      .list-title
+                        h4= list.title
+                      .list-body
+                        p!= list.text
+                      .list-info
+                        .address
+                          = list.address
+                        .phone
+                          = list.phone
+                        .email
+                          = list.email
+                        .web
+                          = list.web
 
 
 

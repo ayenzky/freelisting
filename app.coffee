@@ -1,3 +1,4 @@
+fs           = require 'fs'
 axis         = require 'axis'
 rupture      = require 'rupture'
 autoprefixer = require 'autoprefixer-stylus'
@@ -7,9 +8,14 @@ records      = require 'roots-records'
 collections  = require 'roots-collections'
 excerpt      = require 'html-excerpt'
 moment       = require 'moment'
+orderBy      = require 'lodash.orderby'
+sortBy       = require 'lodash.sortby'
+lodash       = require 'lodash'
 algoliasearch = require 'algoliasearch'
 client = algoliasearch("DAAAWM16TQ", "4711c5a5f317934bcfeb8bebd5f31ff6")
 index = client.initIndex('freelisting')
+listingJSON = './data/free_listing.json'
+
 
 monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ]
 
@@ -21,11 +27,16 @@ module.exports =
       excerpt.text(html, length || 100, ellipsis || '...')
     dateFormat: (date, format) ->
       moment(date).format(format)
-
+    slugifyText: (text) ->
+      s.slugify(text)
+    listing: (obj) ->
+      orderBy obj, ['id', 'id'], ['asc', 'asc']
+    sorting: (obj) ->
+      sortBy obj, ['id', 'title']
 
   extensions: [
     records(
-      menu: { file: "data/menu.json" }
+      freelisting: { file: "data/free_listing.json" }
       site: { file: "data/site.json" }
       files: { file: "data/files.json" }
     ),
@@ -44,3 +55,18 @@ module.exports =
 
   jade:
     pretty: true
+
+  after:
+
+    fs.readFile listingJSON, 'utf8', (err, data) ->
+      object = [];
+      if err then err;
+      obj = JSON.parse(data)
+      str = JSON.stringify(obj.pages)
+      object.push(str)
+      # console.log object
+      index.saveObjects object, (err, content) ->
+        console.log(content)
+      fs.writeFile 'listing.json', object, (err) ->
+        if err then err;
+        console.log 'saved'
