@@ -1,0 +1,15 @@
+extends layout
+
+block site_title
+  = "Buzzin Directory | " + item.title
+
+block content
+  .single-page
+    .container
+      .row
+        .col.col-7.mb-24
+          .list-banner.mb-32
+            img(src= item.banner)
+        .w-col.w-col-5.col-right
+          .list-postbody
+            != item.postbody

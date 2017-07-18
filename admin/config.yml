@@ -44,19 +44,22 @@ collections: # A list of collections the CMS should be able to edit
               - {label: "Keywords", name: "metakeyword", widget: "string"}
               - {label: "Footer", name: "footer", widget: "markdown"}
               - {label: "Google Analytics", name: "analytics", widget: "markdown"}
-  - name: "menus"
-    label: "Menu"
+  - name: "listing"
+    label: "Listing"
     files:
-      - name: "result"
+      - name: "Listing"
         label: "Menu"
-        file: "data/menu.json"
-        description: "edit/add menu items"
+        file: "data/free_listing.json"
+        description: "edit/add free listing"
         fields:
-          - label: "Menu Item"
-            name: "result"
+          - label: "Listing"
+            name: "pages"
             widget: "list"
             fields:
-              - {label: "Item", name: "item", widget: "string"}
+              - {label: "ID", name: "objectID", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Thumbnail", name: "banner", widget: "image"}
+              - {label: "Thumbnail", name: "banner", widget: "image"}
               - {label: "Url ex.(/page/slug)", name: "url", widget: "string"}
   - name: "pages" # Used in routes, ie.: /admin/collections/:slug/edit
     label: "Page"  # Used in the UI, ie.: "New Post"

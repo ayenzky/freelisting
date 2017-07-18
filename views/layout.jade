@@ -11,7 +11,9 @@ html
     meta(name='author', content= records.site.sitedata[0].metauthor)
     meta(name="keywords" content= records.site.sitedata[0].metakeyword)
 
-    title= records.site.sitedata[0].sitename
+    title
+      block site_title
+        = records.site.sitedata[0].sitename
 
     link(rel="icon", href= records.site.sitedata[0].icon, type="image/*")
     link(rel="shortcut icon", href= records.site.sitedata[0].icon, type="img/*")
@@ -22,7 +24,7 @@ html
     link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@1/dist/instantsearch.min.css")
     link(rel='stylesheet', href='/css/fixed-menu.css')
     <!-- Custom CSS -->
-    != css()
+    link(rel='stylesheet', href='/css/master.css')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js')
 
 
@@ -43,7 +45,8 @@ html
     script(src='https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js')
     script(src='https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js')
+    script(src='https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js')
     script(src='/js/jquery.lazyjson.js')
-    script(src='/js/app.js')
+    //- script(src='/js/app.js')
     script(src='/js/search.js')
     script(src='/js/custom.js')

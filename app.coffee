@@ -6,6 +6,8 @@ js_pipeline  = require 'js-pipeline'
 css_pipeline = require 'css-pipeline'
 records      = require 'roots-records'
 collections  = require 'roots-collections'
+s            = require 'underscore.string'
+cleanUrls    = require 'clean-urls'
 excerpt      = require 'html-excerpt'
 moment       = require 'moment'
 orderBy      = require 'lodash.orderby'
@@ -39,6 +41,12 @@ module.exports =
       freelisting: { file: "data/free_listing.json" }
       site: { file: "data/site.json" }
       files: { file: "data/files.json" }
+      freelistings:
+        file: "data/free_listing.json"
+        hook: (res) ->
+              res.pages
+        template: "views/_listing.jade"
+        out: (c) -> "/list/#{s.slugify(c.title)}"
     ),
     collections(folder: 'posts', layout: 'post'),
     collections(folder: 'page', layout: 'post'),
@@ -55,6 +63,8 @@ module.exports =
 
   jade:
     pretty: true
+  server:
+    clean_urls: true
 
   after:
 

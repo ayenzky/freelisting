@@ -6,83 +6,76 @@ block content
       .col.l12.mt-24
         .row
           .col.l3
-            select
-              option(value='', disabled='', selected='') Category
-              option(value='accountants') Accountants
-              option(value='advertising') Advertising
-              option(value='architects') Architects
-              option(value='artists') Artists
+            #clear-all
+            #categories
+            h4 Filter By
+            #city
+            #zipcode
           .col.l9
             div
               input#search-input(placeholder='Search for products')
               // We use a specific placeholder in the input to guides users in their search.
-        #hits
-        #pagination
-        #results
-          .isotope-container
+            .content-wrapper
+              aside
+                #clear-all
+                section.facet-wrapper
+              .results-wrapper
+                section#results-topbar
+                  #stats.text-muted
 
-    .row
-      .col.l12.clear
-        h1.title Featured List
-      .clearFx
-      .featured-listing.listing
-        .isotope-container
-          each featured in listing(records.freelisting.pages)
-            .featured-list.col.l3.isotope-item.mb-16
-              .list
-                .list-thumbnail
-                  a.details(href="http://" + featured.web, target="_blank")
-                    img(src= featured.smallimg)
-                .list-title
-                  a.list-link(href="http://" + featured.web, target="_blank")= featured.title
-                  .blurb= featured.shordesc
+                section#pagination
+                section#featured
+                  script#feat-template(type='text/html').
+                    <div class="list">
+                      <div class="list-thumbnail"><a href="{{url}}" target="_blank" class="details"><img src="{{image}}"></a></div>
+                      <div class="list-title"><a href="{{url}}" target="_blank" class="list-link">{{name}}</a>
+                        <div class="blurb"></div>
+                      </div>
+                    </div>
 
 
-    .row
-      .col.l12
-        h1.title Listing
-      .col.l12
-      .clearFx
-      .listing
-        .isotope-container
-          - var i = 0;
-          - var e = 0;
-          each list in listing(records.freelisting.pages)
-            .lists.col.l3.isotope-item.mb-16
-              .list
-                .list-thumbnail
-                  a.details(href="#", data-target="modal" + (i++))
-                    img(src= list.smallimg)
-                .list-title
-                  a.list-link(href="#")= list.title
-                  .blurb= list.shortdesc
-              // Modal Structure
-              .modal(id="modal" + (e++))
-                .modal-content
-                  .row
-                    .col.l6
-                      .banner
-                        img(src= list.banner)
-                    .col.l6
-                      //- .switch.right.mb-16
-                      //-   | Show All:
-                      //-   label
-                      //-     input(type='checkbox')
-                      //-     span.lever
-                      .clearFx
-                      .list-title
-                        h4= list.title
-                      .list-body
-                        p!= list.text
-                      .list-info
-                        .address
-                          = list.address
-                        .phone
-                          = list.phone
-                        .email
-                          = list.email
-                        .web
-                          = list.web
+              .clearFx
+                h1.title Featured List
+              .clearFx
+              .featured-listing.listing
+                .isotope-container
+                  each featured in listing(records.freelisting.pages)
+                    if featured.type == "featured"
+                      .featured-list.col.l3.isotope-item.mb-16
+                        .list
+                          .list-thumbnail
+                            a.details(href="http://" + featured.web, target="_blank")
+                              img(src= featured.image)
+                          .list-title
+                            a.list-link(href="http://" + featured.web, target="_blank")= featured.title
+                            .blurb= featured.shordesc
+
+              .clearFx
+                h1.title Free Listing
+              .clearFx
+              .listing
+                .isotope-container
+                  - var i = 0;
+                  - var e = 0;
+                  each list in listing(records.freelisting.pages)
+                    if list.type == "free"
+                      .lists.col.l3.isotope-item.mb-16
+                        .list
+                          .list-thumbnail
+                            a.details(href="#", data-target="modal" + (i++))
+                              img(src= list.image)
+                          .list-title
+                            a.list-link(href= "/list/" + slugifyText(list.title))= list.title
+                            .blurb= list.shortdesc
+              .clearFx
+                #hits.isotope-container
+                  script#hit-template(type='text/html').
+                    <div class="list">
+                      <div class="list-thumbnail"><a href="{{url}}" target="_blank" class="details"><img src="{{image}}"></a></div>
+                      <div class="list-title"><a href="{{url}}" target="_blank" class="list-link">{{name}}</a>
+                        <div class="blurb"></div>
+                      </div>
+                    </div>
 
 
 
