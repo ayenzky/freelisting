@@ -48,7 +48,7 @@ collections: # A list of collections the CMS should be able to edit
     label: "Listing"
     files:
       - name: "Listing"
-        label: "Menu"
+        label: "Listing"
         file: "data/free_listing.json"
         description: "edit/add free listing"
         fields:
@@ -70,16 +70,6 @@ collections: # A list of collections the CMS should be able to edit
               - {label: "Email", name: "email", widget: "string"}
               - {label: "Website", name: "web", widget: "string"}
               - {label: "Body", name: "postbody", widget: "markdown"}
-  - name: "pages" # Used in routes, ie.: /admin/collections/:slug/edit
-    label: "Page"  # Used in the UI, ie.: "New Post"
-    folder: "page" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    fields: # The fields each document in this collection have
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown"}
-    meta: # Meta data fields. Just like fields, but without any preview element
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Categories", name: "categories", widget: "string"}
   - name: "filemanager"
     label: "File Manager"
     files:

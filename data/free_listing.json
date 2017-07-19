@@ -3,8 +3,8 @@
   {
     "objectID": "1",
     "title": "Sunnydaze Blinds",
-    "banner": "/img/featured/6.jpg",
-    "image": "/img/featured/thumb/Sunny_Daze_Blinds.jpg",
+    "banner": "/img/uploads/6.jpg",
+    "image": "/img/uploads/thumb/Sunny_Daze_Blinds.jpg",
     "shortdesc": "",
     "address": "2 Johnstone St, Bellshill ML4 1DE, UK",
     "city": "Bellshill",
@@ -19,8 +19,8 @@
   {
     "objectID": "2",
     "title": "Fortress Windows & Doors Ltd",
-    "banner": "/img/featured/3.jpg",
-    "image": "/img/featured/thumb/fortress_logo.jpg",
+    "banner": "/img/uploads/3.jpg",
+    "image": "/img/uploads/thumb/fortress_logo.jpg",
     "shortdesc": "",
     "address": "Units 3 & 5 Pickerings House, Netherton Rd, Wishaw ML2 0EQ, UK",
     "city": "ML2",
@@ -36,8 +36,8 @@
   {
     "objectID": "3",
     "title": "Henry Training",
-    "banner": "/img/featured/5.jpg",
-    "image": "/img/featured/thumb/hendry_training.jpg",
+    "banner": "/img/uploads/5.jpg",
+    "image": "/img/uploads/thumb/hendry_training.jpg",
     "shortdesc": "",
     "address": "37 Riverbank Dr, Bellshill ML4 2PR, UK",
     "city": "Bellshill",
@@ -52,8 +52,8 @@
   {
     "objectID": "4",
     "title": "Webfactories Australia",
-    "banner": "/img/featured/2.jpg",
-    "image": "/img/featured/thumb/wfau.jpg",
+    "banner": "/img/uploads/2.jpg",
+    "image": "/img/uploads/thumb/wfau.jpg",
     "shortdesc": "",
     "address": "4011 Wallingford Ave N",
     "city": "Wallingford",
@@ -68,8 +68,8 @@
   {
     "objectID": "5",
     "title": "Catch Fish",
-    "banner": "/img/featured/1.jpg",
-    "image": "/img/featured/thumb/CF.jpg",
+    "banner": "/img/uploads/1.jpg",
+    "image": "/img/uploads/thumb/CF.jpg",
     "shortdesc": "Next Generation Digital Design & Marketing",
     "address": "272 Bath St, Glasgow G2 4JR, UK",
     "city": "Glasgow",
@@ -85,8 +85,8 @@
   {
     "objectID": "6",
     "title": "The Optical Factory",
-    "banner": "/img/featured/7.png",
-    "image": "/img/featured/thumb/TOF.jpg",
+    "banner": "/img/uploads/7.png",
+    "image": "/img/uploads/thumb/TOF.jpg",
     "shortdesc": "",
     "address": "Fullwood Industrial Estate, Burnbank Rd, Hamilton ML3 9AZ, UK",
     "city": "Hamilton",
@@ -101,8 +101,8 @@
   {
     "objectID": "7",
     "title": "Play Music Now",
-    "banner": "/img/featured/10.jpg",
-    "image": "/img/featured/thumb/PMN.jpg",
+    "banner": "/img/uploads/10.jpg",
+    "image": "/img/uploads/thumb/PMN.jpg",
     "shortdesc": "",
     "address": "210 Main St, Wishaw ML2, UK",
     "city": "Wishaw",
@@ -117,8 +117,8 @@
   {
     "objectID": "8",
    "title": "The Marketing Department",
-    "banner": "/img/featured/9.jpg",
-    "image": "/img/featured/thumb/TMD.jpg",
+    "banner": "/img/uploads/9.jpg",
+    "image": "/img/uploads/thumb/TMD.jpg",
     "shortdesc": "",
     "address": "Glasgow, UK",
     "city": "Glasgow",
@@ -133,8 +133,8 @@
   {
    "objectID": "9",
    "title": "Dailmore Photography",
-    "banner": "/img/featured/0.jpg",
-    "image": "/img/featured/thumb/businesslisting.jpg",
+    "banner": "/img/uploads/0.jpg",
+    "image": "/img/uploads/thumb/businesslisting.jpg",
     "shortdesc": "",
     "address": "Upper Bourtree Ct, Rutherglen, Glasgow, G73 4HT, UK",
     "city": "Glasgow",
@@ -149,8 +149,8 @@
   {
    "objectID": "10",
    "title": "Unleased It Ltd",
-    "banner": "/img/featured/8.jpg",
-    "image": "/img/featured/thumb/Londsdale_Hotel.jpg",
+    "banner": "/img/uploads/8.jpg",
+    "image": "/img/uploads/thumb/Londsdale_Hotel.jpg",
     "shortdesc": "",
     "address": "Glasgow, UK",
     "city": "Glasgow",
@@ -165,7 +165,7 @@
   {
    "objectID": "11",
    "title": "GMC Ink Toner Solutions",
-    "banner": "/img/featured/8.jpg",
+    "banner": "/img/uploads/gmc_big.jpg",
     "image": "/img/uploads/thumb/gmc.jpg",
     "shortdesc": "We Put Your Business In Front Of The Customers",
     "address": "17 Whitson Avenue, Stranraer, United Kingdom, DG9 7AW",
@@ -181,7 +181,7 @@
   {
    "objectID": "12",
    "title": "Love Homes",
-    "banner": "/img/featured/8.jpg",
+    "banner": "/img/uploads/love_homes_big.jpg",
     "image": "/img/uploads/thumb/love_homes.jpg",
     "shortdesc": "",
     "address": "166 Merry St Motherwell ML1 UK",
@@ -197,7 +197,7 @@
   {
    "objectID": "14",
    "title": "Garage Doors Lanarkshire",
-    "banner": "/img/featured/8.jpg",
+    "banner": "/img/uploads/mgd_big.jpg",
     "image": "/img/uploads/thumb/GDL.jpg",
     "shortdesc": "",
     "address": "166 Merry St Motherwell ML1 UK",
@@ -213,7 +213,7 @@
   {
    "objectID": "16",
    "title": "Gebbie & Wilson",
-    "banner": "/img/featured/8.jpg",
+    "banner": "/img/uploads/gb_big.jpg",
     "image": "/img/uploads/thumb/gebbie_wilson.jpg",
     "shortdesc": "",
     "address": "166 Merry St Motherwell ML1 UK",
@@ -229,7 +229,7 @@
   {
    "objectID": "17",
    "title": "CMR Repair Centre",
-    "banner": "/img/featured/8.jpg",
+    "banner": "/img/uploads/cmr_big.jpg",
     "image": "/img/uploads/thumb/CMR_Repair_Centre.jpg",
     "shortdesc": "CMR covers both North and South Lanarkshire!",
     "address": "52 Constantine Way, Motherwell ML1 3US, UK",
@@ -245,7 +245,7 @@
   {
    "objectID": "18",
    "title": "Bramble Bay Blinds",
-    "banner": "/img/featured/8.jpg",
+    "banner": "/img/uploads/bb_big.jpg",
     "image": "/img/uploads/thumb/bramble_bay.jpg",
     "shortdesc": "",
     "address": "166 Merry St Motherwell ML1 UK",
@@ -261,7 +261,7 @@
   {
    "objectID": "19",
    "title": "Mates Rates Rubber And Recreation",
-    "banner": "/img/featured/8.jpg",
+    "banner": "/img/uploads/mr_big.jpg",
     "image": "/img/uploads/thumb/mr_amp.jpg",
     "shortdesc": "",
     "address": "6/14 Paisley Dr, Lawnton QLD 4501, Australia",
@@ -277,7 +277,7 @@
   {
    "objectID": "20",
    "title": "The Landscaping Yard",
-    "banner": "/img/featured/8.jpg",
+    "banner": "/img/uploads/ly_big.jpg",
     "image": "/img/uploads/thumb/landscaping-_yard.jpg",
     "shortdesc": "",
     "address": "6/14 Paisley Dr, Lawnton QLD 4501, Australia",
