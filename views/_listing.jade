@@ -7,11 +7,29 @@ block content
   .single-page
     .container
       .row.mt-32
-        .col.l7.mb-24
-          .list-banner.mb-32
-            img.lazy(src="/img/ajax-loader.gif", data-src= item.banner)
-        .col.l5
+        .col.s12.l7.mb-24
+          .list-banner.mb-32.center-align
+            img.lazy(src="/img/ajax-loader.svg", data-src= item.banner)
+        .col.s12.l5
           .list-title
             h1= item.title
           .list-postbody
             != item.postbody
+            .list-info.mt-24
+              if item.address != ""
+                i.material-icons.tiny room
+                p.address= item.address
+              if item.phone != ""
+                i.material-icons.tiny stay_current_portrait
+                p.phone= item.phone
+              if item.email != ""
+                p.email
+                  i.material-icons.tiny email
+                  a(href="mailto:" + item.email)= item.email
+              if item.web != ""
+                p.web
+                  i.material-icons.tiny language
+                  a(href="http:" + item.web)= item.web
+            .map.mt-24
+              iframe(width='100%', height='300', frameborder='0', style='border:0', src='https://www.google.com/maps/embed/v1/place?key=AIzaSyCcHeSmYvzt6smHyJ0WC2eSgCd4-1iIVxA\
+              &q='+item.address+'', allowfullscreen='')
