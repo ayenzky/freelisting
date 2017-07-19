@@ -57,10 +57,19 @@ collections: # A list of collections the CMS should be able to edit
             widget: "list"
             fields:
               - {label: "ID", name: "objectID", widget: "string"}
+              - {label: "Type (ex. featured or free)", name: "type", widget: "string"}
+              - {label: "Category", name: "categories", widget: "string"}
               - {label: "Title", name: "title", widget: "string"}
-              - {label: "Thumbnail", name: "banner", widget: "image"}
-              - {label: "Thumbnail", name: "banner", widget: "image"}
-              - {label: "Url ex.(/page/slug)", name: "url", widget: "string"}
+              - {label: "Thumbnail", name: "banner", widget: "image", media_folder: "assets/uploads"}
+              - {label: "Main Image", name: "image", widget: "image", media_folder: "assets/uploads/thumb"}
+              - {label: "Short Description", name: "shortdesc", widget: "string"}
+              - {label: "Adress", name: "address", widget: "string"}
+              - {label: "City", name: "city", widget: "string"}
+              - {label: "Zipcode", name: "zip", widget: "string"}
+              - {label: "Phone", name: "phone", widget: "string"}
+              - {label: "Email", name: "email", widget: "string"}
+              - {label: "Website", name: "web", widget: "string"}
+              - {label: "Body", name: "postbody", widget: "markdown"}
   - name: "pages" # Used in routes, ie.: /admin/collections/:slug/edit
     label: "Page"  # Used in the UI, ie.: "New Post"
     folder: "page" # The path to the folder where the documents are stored

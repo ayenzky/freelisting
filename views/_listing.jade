@@ -6,10 +6,12 @@ block site_title
 block content
   .single-page
     .container
-      .row
-        .col.col-7.mb-24
+      .row.mt-32
+        .col.l7.mb-24
           .list-banner.mb-32
-            img(src= item.banner)
-        .w-col.w-col-5.col-right
+            img.lazy(src="/img/ajax-loader.gif", data-src= item.banner)
+        .col.l5
+          .list-title
+            h1= item.title
           .list-postbody
             != item.postbody
