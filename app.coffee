@@ -32,7 +32,7 @@ module.exports =
     slugifyText: (text) ->
       s.slugify(text)
     listing: (obj) ->
-      orderBy obj, ['id', 'id'], ['asc', 'asc']
+      orderBy obj, ['objectID', 'date'], ['asc', 'asc']
     sorting: (obj) ->
       sortBy obj, ['id', 'title']
 
