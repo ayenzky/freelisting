@@ -70,14 +70,14 @@ module.exports =
   after:
 
     fs.readFile listingJSON, 'utf8', (err, data) ->
-      object = [];
+      objects = [];
       if err then err;
       obj = JSON.parse(data)
       str = JSON.stringify(obj.pages)
-      object.push(str)
+      objects.push(str)
       # console.log object
-      index.saveObjects object, (err, content) ->
-        console.log(content)
-      fs.writeFile 'listing.json', object, (err) ->
+      index.saveObjects objects, (err, content) ->
+        console.log(objects)
+      fs.writeFile 'listing.json', objects, (err) ->
         if err then err;
         console.log 'saved'
