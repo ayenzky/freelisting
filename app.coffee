@@ -76,7 +76,7 @@ module.exports =
       str = JSON.stringify(obj.pages)
       object.push(str)
       # console.log object
-      index.partialUpdateObjects object, (err, content) ->
+      index.saveObjects object, (err, content) ->
         console.log(content)
       fs.writeFile 'listing.json', object, (err) ->
         if err then err;
