@@ -9,6 +9,8 @@ block content
     .row
       .col.l12.mt-24
         .row
+          .col.l12
+            #results
           .col.l3
             #clear-all
             #categories
@@ -30,8 +32,6 @@ block content
                 section#pagination
 
               .clearFx
-                h1.title Search Result
-              .clearFx
                 #hits.isotope-container
                   script#hit-template(type='text/html').
                     <div class="list">
@@ -45,18 +45,18 @@ block content
                 h1.title Featured List
               .clearFx
               #featured.featured-listing.listing
-                script#feat-template(type='text/html').
-                  <div class="list">
-                    <div class="list-thumbnail"><a href="{{url}}" target="_blank" class="details"><img src="{{image}}"></a>
-                    <div class="blurb"><p class="type">{{type}}</p></div>
-                    </div>
-                    <div class="list-title">
-                    <a href="{{url}}" target="_blank" class="list-link">{{title}}</a>
-                    <div class="short-desc">
-                      <p>{{shortdesc}}</p>
-                    </div>
-                    </div>
-                  </div>
+                //- script#feat-template(type='text/html').
+                //-   <div class="list">
+                //-     <div class="list-thumbnail"><a href="{{url}}" target="_blank" class="details"><img src="{{image}}"></a>
+                //-     <div class="blurb"><p class="type">{{type}}</p></div>
+                //-     </div>
+                //-     <div class="list-title">
+                //-     <a href="{{url}}" target="_blank" class="list-link">{{title}}</a>
+                //-     <div class="short-desc">
+                //-       <p>{{shortdesc}}</p>
+                //-     </div>
+                //-     </div>
+                //-   </div>
 
               .clearFx
                 h1.title Free Listing

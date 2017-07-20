@@ -5,10 +5,10 @@ var search = instantsearch({
   appId: 'DAAAWM16TQ',
   apiKey: '44914085bfda74e89bf571bdac1d8022',
   indexName: 'freelisting',
-  urlSync: false,
-  hierarchicalFacetsRefinements: {
-    type: ['featured']
-  }
+  urlSync: false
+  // hierarchicalFacetsRefinements: {
+  //   type: ['featured']
+  // }
 });
 
 var feaTemplate = '<div class="list">'+
@@ -29,20 +29,20 @@ var zipTemp = '<div class="c-list">'+
                     '<a href="javascript:void(0);" class="facet-item {{#isRefined}}active{{/isRefined}}">{{name}} <span class="count">({{count}})</span></a>'+
                     '</div>';
 
-search.addWidget(
-  instantsearch.widgets.hits({
-    container: '#featured',
-    attributeName: 'type',
-    templates: {
-      header: 'Featured Ads',
-      item: document.getElementById('feat-template').innerHTML,
-    },
-    cssClasses: {
-      body: 'isotope-container',
-      item: 'featured-list col l3  mb-16 isotope-item'
-    }
-  })
-);
+// search.addWidget(
+//   instantsearch.widgets.hits({
+//     container: '#featured',
+//     attributeName: 'type',
+//     templates: {
+//       header: 'Featured Ads',
+//       item: document.getElementById('feat-template').innerHTML,
+//     },
+//     cssClasses: {
+//       body: 'isotope-container',
+//       item: 'featured-list col l3  mb-16 isotope-item'
+//     }
+//   })
+// );
 
 search.on('render', function(){
   $('.list-title').createExcerpts('.short-desc',100,'...');
@@ -64,8 +64,9 @@ search.addWidget(
 search.addWidget(
   instantsearch.widgets.hits({
     container: '#hits',
-    hitsPerPage: 10,
+    hitsPerPage: 4,
     templates: {
+      header: '<h4>Search Results</h4>',
       item: document.getElementById('hit-template').innerHTML,
       empty: "We didn't find any results for the search <em>\"{{query}}\"</em>",
     },

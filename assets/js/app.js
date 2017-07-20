@@ -59,3 +59,71 @@
 //   }
 // };
 
+'use strict';
+
+var $input = $('input');
+var $users = $('#featured');
+
+
+var client = algoliasearch("DAAAWM16TQ", "44914085bfda74e89bf571bdac1d8022");
+var index = client.initIndex('freelisting');
+
+  $input.keyup(function() {
+    index.search($input.val(), {
+      hitsPerPage: 10,
+      filters: '(type: featured OR type: free)'
+    }, searchCallback2);
+  }).focus();
+
+    index.search({
+      hitsPerPage: 10,
+      filters: 'type: featured'
+    }, searchCallback);
+
+    function searchCallback2(err, content) {
+      if (err) {
+        console.error(err);
+        return;
+     }
+
+     $users.empty()
+
+      for (var i = 0; i < content.hits.length; i++) {
+        $users.append('<div class="featured-list col xs12 s6 m4 l3 mb-16"><div class="list">'+
+                    '<div class="list-thumbnail"><a href="http://'+ content.hits[i].url +'" target="_blank" class="details"><img src="'+ content.hits[i].image +'"></a>'+
+                    '<div class="blurb"><p class="type">'+ content.hits[i].type +'</p></div>'+
+                    '</div>'+
+                    '<div class="list-title">'+
+                    '<a href="http://'+ content.hits[i].url +'" target="_blank" class="list-link">'+ content.hits[i].title +'</a>'+
+                    '<div class="short-desc"><p>'+ content.hits[i].shortdesc +'</p></div>'+
+                    '</div>'+
+                    '</div></div>');
+      }
+
+      $('.list-title').createExcerpts('.short-desc',100,'...');
+    };
+
+
+    function searchCallback(err, content) {
+      if (err) {
+        console.error(err);
+        return;
+     }
+
+      for (var i = 0; i < content.hits.length; i++) {
+        $users.append('<div class="featured-list col xs12 s6 m4 l3 mb-16"><div class="list">'+
+                    '<div class="list-thumbnail"><a href="http://'+ content.hits[i].url +'" target="_blank" class="details"><img src="'+ content.hits[i].image +'"></a>'+
+                    '<div class="blurb"><p class="type">'+ content.hits[i].type +'</p></div>'+
+                    '</div>'+
+                    '<div class="list-title">'+
+                    '<a href="http://'+ content.hits[i].url +'" target="_blank" class="list-link">'+ content.hits[i].title +'</a>'+
+                    '<div class="short-desc"><p>'+ content.hits[i].shortdesc +'</p></div>'+
+                    '</div>'+
+                    '</div></div>');
+      }
+      $('.list-title').createExcerpts('.short-desc',100,'...');
+    };
+
+
+
+
