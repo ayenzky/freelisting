@@ -58,7 +58,7 @@ collections: # A list of collections the CMS should be able to edit
             fields:
               - {label: "ID", name: "objectID", widget: "string"}
               - {label: "Type (ex. featured or free)", name: "type", widget: "string"}
-              - {label: "Type", name: "type", widget: "select", options: ["", "featured", "free"]}
+              # - {label: "Type", name: "type", widget: "select", options: ["", "featured", "free"]}
               - {label: "Category", name: "categories", widget: "string"}
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Thumbnail", name: "banner", widget: "image", media_folder: "assets/uploads"}
