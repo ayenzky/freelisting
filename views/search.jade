@@ -1,0 +1,81 @@
+extends layout
+
+block content
+  .container.search-page
+    .row
+      .col.l12.mt-24
+        .row
+          .col.l3
+            #clear-all
+            #categories
+            h4 Filter By
+            #city
+            #zipcode
+          .col.m8.l9
+            div
+              input#search-input(placeholder='Search for products')
+              // We use a specific placeholder in the input to guides users in their search.
+            .content-wrapper
+              aside
+                #clear-all
+                section.facet-wrapper
+              .results-wrapper
+                section#results-topbar
+                  #stats.text-muted
+
+                section#pagination
+                section#featured
+                  script#feat-template(type='text/html').
+                    <div class="list">
+                      <div class="list-thumbnail"><a href="{{url}}" target="_blank" class="details"><img src="{{image}}"></a></div>
+                      <div class="list-title"><a href="{{url}}" target="_blank" class="list-link">{{name}}</a>
+                        <div class="blurb"></div>
+                      </div>
+                    </div>
+
+
+              .clearFx
+                h1.title Featured List
+              .clearFx
+              .featured-listing.listing
+                .isotope-container
+                  each featured in listing(records.freelisting.pages)
+                    if featured.type == "featured"
+                      .featured-list.col.xs12.s6.m4.l3.mb-16
+                        .list
+                          .list-thumbnail
+                            a.details(href="http://" + featured.web, target="_blank")
+                              img.lazy(src="/img/ajax-loader.svg", data-src= featured.image)
+                            .blurb
+                              p.type= featured.type
+                          .list-title
+                            a.list-link(href="http://" + featured.web, target="_blank")= featured.title
+                            .short-desc
+                              p= postExcerpt(featured.shortdesc, 80)
+
+              .clearFx
+                h1.title Free Listing
+              .clearFx
+              .listing
+                .isotope-container
+                  - var i = 0;
+                  - var e = 0;
+                  each list in listing(records.freelisting.pages)
+                    if list.type == "free"
+                      .lists.col.l3.isotope-item.mb-16
+                        .list
+                          .list-thumbnail
+                            a.details(href="#", data-target="modal" + (i++))
+                              img(src= list.image)
+                          .list-title
+                            a.list-link(href= "/list/" + slugifyText(list.title))= list.title
+                            //- .blurb= list.shortdesc
+              .clearFx
+                #hits.isotope-container
+                  script#hit-template(type='text/html').
+                    <div class="list">
+                      <div class="list-thumbnail"><a href="{{url}}" target="_blank" class="details"><img src="{{image}}"></a></div>
+                      <div class="list-title"><a href="{{url}}" target="_blank" class="list-link">{{name}}</a>
+                        <div class="blurb"></div>
+                      </div>
+                    </div>

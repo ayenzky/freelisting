@@ -3,31 +3,28 @@ extends layout
 block content
   .container
     .row
-      .col.l12.mt-24
-        .row
-          .clearFx
-            .col.l12
-              h1.title <span class="red-text">Featured</span> List
+      .col.l12
+        .row.mt-56
           .clearFx
           .featured-listing.listing
-            each featured in listing(records.freelisting.pages)
+            each featured in listing(records.featuredlist.pages)
               if featured.type == "featured"
                 .featured-list.col.xs12.s6.m4.l3.mb-16
                   .list
                     .list-thumbnail
                       a.details(href="http://" + featured.web, target="_blank")
                         img.lazy(src="/img/ajax-loader.svg", data-src= featured.image)
+                      .blurb
+                        p.type= featured.type
                     .list-title
                       a.list-link(href="http://" + featured.web, target="_blank")= featured.title
-                    .blurb
-                      p.type= featured.type
-                    //- .blurb
-                    //-   p= featured.shordesc
+                      .short-desc
+                        p= postExcerpt(featured.shortdesc, 100)
 
         .row.mt-32
           .clearFx
             .col.l12
-              h1.title <span class="red-text">Free</span> List
+              h1.title <span class="red-text">Free</span> Listing
           .clearFx
           .listing
             - var i = 0;
@@ -39,10 +36,11 @@ block content
                     .list-thumbnail
                       a.details(href= "/list/" + slugifyText(list.title))
                         img.lazy(src="/img/ajax-loader.svg", data-src= list.image)
+                      .blurb
+                        p.type= list.type
                     .list-title
                       a.list-link(href= "/list/" + slugifyText(list.title))= list.title
-                    .blurb
-                      p.type= list.type
+
                     //- .blurb
                     //-   p= list.shortdesc
 

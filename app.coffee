@@ -32,7 +32,7 @@ module.exports =
     slugifyText: (text) ->
       s.slugify(text)
     listing: (obj) ->
-      orderBy obj, ['objectID', 'date'], ['asc', 'asc']
+      orderBy obj, ['objectID', 'title'], ['asc', 'desc']
     sorting: (obj) ->
       sortBy obj, ['id', 'title']
 
@@ -41,6 +41,7 @@ module.exports =
       freelisting: { file: "data/free_listing.json" }
       site: { file: "data/site.json" }
       files: { file: "data/files.json" }
+      featuredlist:{file: "data/featured_listing.json"}
       freelistings:
         file: "data/free_listing.json"
         hook: (res) ->

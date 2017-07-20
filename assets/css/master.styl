@@ -14,8 +14,9 @@ h1, h2 ,h3 ,h4, h5
   font-family 'Roboto', sans-serif
 
 h1.title
-  font-weight 500
+  font-weight 300
   color #333
+  text-transform uppercase
 
 .container
   width 100%
@@ -43,8 +44,8 @@ nav
   margin-top 32px
 .mt-48
   margin-top 48px
-.mt-52
-  margin-top 52px
+.mt-56
+  margin-top 56px
 
 .mb-16
   margin-bottom 16px
@@ -73,6 +74,9 @@ img
         color #222
 
 .listing
+  .featured-list
+    .list
+      height 315px
   .list
     box-shadow 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
     -webkit-box-shadow 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
@@ -80,12 +84,15 @@ img
     -webkit-transition  400ms ease
     background-color #fff
     .list-thumbnail
+      height 100%
       max-height 180px
       overflow hidden
       text-align center
+      position relative
       a
         display block
         height 100%
+        line-height 15
         background #485563  /* fallback for old browsers */
         background -webkit-linear-gradient(to left top, #29323c, #485563)  /* Chrome 10-25, Safari 5.1-6 */
         background linear-gradient(to left top, #29323c, #485563) /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -101,14 +108,22 @@ img
       img
         -webkit-transform: scale(1.07)
         transform: scale(1.07)
+      .list-title
+        a
+          color #bd3f32
     .list-title
-      padding 10px 10px 0px
+      padding 10px
       a
-        color #555
-        text-transform uppercase
-        font-weight 800
+        color #333
+      .short-desc
+        p
+          color #555
     .blurb
       padding 0 10px
+      position absolute
+      bottom  0
+      left 0
+      margin-left -10px
       .type
         display inline-block
         padding 2px 8px 2px 8px
@@ -121,6 +136,12 @@ img
         .material-icons
           float left
           margin-top 2px
+  .lists
+    .blurb
+      .type
+        background: #00c6ff;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to left, #2196F3, #03A9F4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 .single-page
   a
@@ -168,7 +189,38 @@ img
   /* this is needed so Safari keeps sharp edges */
   transform: scale(1);
 
+.search-page .listing .list .list-thumbnail{
+  max-height:130px;
+}
+.search-page .listing .featured-list .list{
+  height:285px;
+}
+
 
 @media (max-width: 414px)
   .row .col.xs12
     width 100%
+
+.listing .list .list-thumbnail
+  @media (max-width:1024px)
+    max-height 140px
+  @media (max-width:980px)
+    max-height 180px
+  @media (max-width:800px)
+    max-height 150px
+  @media (max-width:768px)
+    max-height 140px
+  @media (max-width:736px)
+    max-height 135px
+  @media (max-width:667px)
+    max-height 120px
+  @media (max-width:640px)
+    max-height 110px
+  @media (max-width:568px)
+    max-height 150px
+  @media (max-width:414px)
+    max-height 220px
+  @media (max-width:375px)
+    max-height 190px
+  @media (max-width:320px)
+    max-height 160px
