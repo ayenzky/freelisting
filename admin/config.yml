@@ -44,15 +44,36 @@ collections: # A list of collections the CMS should be able to edit
               - {label: "Keywords", name: "metakeyword", widget: "string"}
               - {label: "Footer", name: "footer", widget: "markdown"}
               - {label: "Google Analytics", name: "analytics", widget: "markdown"}
-  - name: "listing"
-    label: "Listing"
+  - name: "featured"
+    label: "Featured Listing"
     files:
-      - name: "Listing"
-        label: "Listing"
+      - name: "featured"
+        label: "Featured Listing"
+        file: "data/featured_listing.json"
+        description: "edit/add featured listing"
+        fields:
+          - label: "Featured Listing"
+            name: "pages"
+            widget: "list"
+            fields:
+              - {label: "Type: Featured", name: "type", widget: "hidden", value: "featured"}
+              - {label: "ID", name: "objectID", widget: "string"}
+              - {label: "Category", name: "categories", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Main Image", name: "image", widget: "image", media_folder: "assets/uploads/thumb"}
+              - {label: "Short Description", name: "shortdesc", widget: "string"}
+              - {label: "Website", name: "web", widget: "string"}
+              - {label: "Publish Date", name: "date", widget: "datetime"}
+
+  - name: "free"
+    label: "Free Listing"
+    files:
+      - name: "free"
+        label: "Free Listing"
         file: "data/free_listing.json"
         description: "edit/add free listing"
         fields:
-          - label: "Listing"
+          - label: "Free Listing"
             name: "pages"
             widget: "list"
             fields:
