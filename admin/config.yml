@@ -70,6 +70,7 @@ collections: # A list of collections the CMS should be able to edit
               - {label: "Phone", name: "phone", widget: "string"}
               - {label: "Email", name: "email", widget: "string"}
               - {label: "Website", name: "web", widget: "string"}
+              - {label: "Publish Date", name: "date", widget: "datetime"}
               - {label: "Body", name: "postbody", widget: "markdown"}
   - name: "filemanager"
     label: "File Manager"
