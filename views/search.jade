@@ -1,7 +1,9 @@
 extends layout
 
 block script
+  script(src='/js/html.excerpt.js')
   script(src='/js/search.js')
+
 block content
   .container.search-page
     .row
@@ -26,8 +28,12 @@ block content
                   #stats.text-muted
 
                 section#pagination
-                section#featured
-                  script#feat-template(type='text/html').
+
+              .clearFx
+                h1.title Search Result
+              .clearFx
+                #hits.isotope-container
+                  script#hit-template(type='text/html').
                     <div class="list">
                       <div class="list-thumbnail"><a href="{{url}}" target="_blank" class="details"><img src="{{image}}"></a></div>
                       <div class="list-title"><a href="{{url}}" target="_blank" class="list-link">{{name}}</a>
@@ -35,25 +41,22 @@ block content
                       </div>
                     </div>
 
-
               .clearFx
                 h1.title Featured List
               .clearFx
-              .featured-listing.listing
-                .isotope-container
-                  each featured in listing(records.freelisting.pages)
-                    if featured.type == "featured"
-                      .featured-list.col.xs12.s6.m4.l3.mb-16
-                        .list
-                          .list-thumbnail
-                            a.details(href="http://" + featured.web, target="_blank")
-                              img.lazy(src="/img/ajax-loader.svg", data-src= featured.image)
-                            .blurb
-                              p.type= featured.type
-                          .list-title
-                            a.list-link(href="http://" + featured.web, target="_blank")= featured.title
-                            .short-desc
-                              p= postExcerpt(featured.shortdesc, 80)
+              #featured.featured-listing.listing
+                script#feat-template(type='text/html').
+                  <div class="list">
+                    <div class="list-thumbnail"><a href="{{url}}" target="_blank" class="details"><img src="{{image}}"></a>
+                    <div class="blurb"><p class="type">{{type}}</p></div>
+                    </div>
+                    <div class="list-title">
+                    <a href="{{url}}" target="_blank" class="list-link">{{title}}</a>
+                    <div class="short-desc">
+                      <p>{{shortdesc}}</p>
+                    </div>
+                    </div>
+                  </div>
 
               .clearFx
                 h1.title Free Listing
@@ -72,12 +75,3 @@ block content
                           .list-title
                             a.list-link(href= "/list/" + slugifyText(list.title))= list.title
                             //- .blurb= list.shortdesc
-              .clearFx
-                #hits.isotope-container
-                  script#hit-template(type='text/html').
-                    <div class="list">
-                      <div class="list-thumbnail"><a href="{{url}}" target="_blank" class="details"><img src="{{image}}"></a></div>
-                      <div class="list-title"><a href="{{url}}" target="_blank" class="list-link">{{name}}</a>
-                        <div class="blurb"></div>
-                      </div>
-                    </div>

@@ -44,6 +44,10 @@ search.addWidget(
   })
 );
 
+search.on('render', function(){
+  $('.list-title').createExcerpts('.short-desc',100,'...');
+})
+
 search.addWidget(
   instantsearch.widgets.searchBox({
     container: '#search-input',

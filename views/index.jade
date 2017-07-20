@@ -29,7 +29,7 @@ block content
           .listing
             - var i = 0;
             - var e = 0;
-            each list in listing(records.freelisting.pages)
+            each list in sorting(records.freelisting.pages)
               if list.type == "free"
                 .lists.col.xs12.s6.m4.l3.mb-16
                   .list
