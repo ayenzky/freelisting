@@ -16,20 +16,21 @@ block content
           .list-postbody
             != item.postbody
             .list-info.mt-24
-              if item.address != ""
+              if item.address != " "
                 i.material-icons.tiny room
                 p.address= item.address
-              if item.phone != ""
+              if item.phone != " "
                 i.material-icons.tiny stay_current_portrait
                 p.phone= item.phone
-              if item.email != ""
+              if item.email != " "
                 p.email
                   i.material-icons.tiny email
                   a(href="mailto:" + item.email)= item.email
-              if item.web != ""
+              if item.web != " "
                 p.web
                   i.material-icons.tiny language
                   a(href="http:" + item.web)= item.web
-            .map.mt-24
-              iframe(width='100%', height='300', frameborder='0', style='border:0', src='https://www.google.com/maps/embed/v1/place?key=AIzaSyCcHeSmYvzt6smHyJ0WC2eSgCd4-1iIVxA\
-              &q='+item.address+'', allowfullscreen='')
+            if item.address != " "
+              .map.mt-24
+                iframe(width='100%', height='300', frameborder='0', style='border:0', src='https://www.google.com/maps/embed/v1/place?key=AIzaSyCcHeSmYvzt6smHyJ0WC2eSgCd4-1iIVxA\
+                &q='+item.address+'', allowfullscreen='')
