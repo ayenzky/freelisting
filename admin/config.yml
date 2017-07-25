@@ -56,10 +56,10 @@ collections: # A list of collections the CMS should be able to edit
             name: "pages"
             widget: "list"
             fields:
-              - {label: "Type: Featured", name: "type", widget: "hidden", value: "featured"}
-              - {label: "ID", name: "objectID", widget: "string"}
-              - {label: "Category", name: "categories", widget: "string"}
               - {label: "Title", name: "title", widget: "string"}
+              - {label: "ID", name: "objectID", widget: "string"}
+              - {label: "Type: Featured", name: "type", widget: "string", value: "featured"}
+              - {label: "Category", name: "categories", widget: "string"}
               - {label: "Main Image", name: "image", widget: "image", media_folder: "assets/uploads/thumb"}
               - {label: "Short Description", name: "shortdesc", widget: "string"}
               - {label: "Website", name: "web", widget: "string"}
@@ -77,11 +77,11 @@ collections: # A list of collections the CMS should be able to edit
             name: "pages"
             widget: "list"
             fields:
-              - {label: "Type: Free", name: "type", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
               - {label: "ID", name: "objectID", widget: "string"}
+              - {label: "Type: Free", name: "type", widget: "string"}
               # - {label: "Type", name: "type", widget: "select", options: ["", "featured", "free"]}
               - {label: "Category", name: "categories", widget: "string"}
-              - {label: "Title", name: "title", widget: "string"}
               - {label: "Thumbnail", name: "banner", widget: "image", media_folder: "assets/uploads"}
               - {label: "Main Image", name: "image", widget: "image", media_folder: "assets/uploads/thumb"}
               - {label: "Adress", name: "address", widget: "string"}
