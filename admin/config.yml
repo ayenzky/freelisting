@@ -77,7 +77,7 @@ collections: # A list of collections the CMS should be able to edit
             name: "pages"
             widget: "list"
             fields:
-              - {label: "Type: Free", name: "type", widget: "hidden", value: "free"}
+              - {label: "Type: Free", name: "type", widget: "string"}
               - {label: "ID", name: "objectID", widget: "string"}
               # - {label: "Type", name: "type", widget: "select", options: ["", "featured", "free"]}
               - {label: "Category", name: "categories", widget: "string"}
