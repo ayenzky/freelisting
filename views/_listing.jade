@@ -29,7 +29,7 @@ block content
               if item.web != " "
                 p.web
                   i.material-icons.tiny language
-                  a(href="http:" + item.web)= item.web
+                  a(href="http://" + item.web, target="_blank")= item.web
             if item.address != " "
               .map.mt-24
                 iframe(width='100%', height='300', frameborder='0', style='border:0', src='https://www.google.com/maps/embed/v1/place?key=AIzaSyCcHeSmYvzt6smHyJ0WC2eSgCd4-1iIVxA\
