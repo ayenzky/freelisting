@@ -16,7 +16,8 @@ lodash       = require 'lodash'
 algoliasearch = require 'algoliasearch'
 client = algoliasearch("DAAAWM16TQ", "4711c5a5f317934bcfeb8bebd5f31ff6")
 index = client.initIndex('freelisting')
-listingJSON = './data/free_listing.json'
+freeJSON = './data/free_listing.json'
+featuredJSON = './data/featured_listing.json'
 
 
 monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ]
@@ -68,22 +69,39 @@ module.exports =
     clean_urls: true
 
   after:
+      # objects = [];
+    # fs.readFile listingJSON, 'utf8', (err, data) ->
+    #   if err then err;
+    #   obj = JSON.parse(data)
+    #   str = obj.pages
+    #   strr = obj.feature
+    #   combine = str.concat(strr)
+    #   result = JSON.stringify(combine)
 
-    fs.readFile listingJSON, 'utf8', (err, data) ->
+    #   # console.log(result)
+    #   objects.push(result)
+    #   # console.log object
+    #   index.saveObjects objects, (err, content) ->
+    #     # console.log(objects)
+    #   fs.writeFile 'listing.json', objects, (err) ->
+    #     if err then err;
+    #     console.log 'saved'
+
+    fs.readFile freeJSON, 'utf8', (err, data) ->
       objects = [];
-      con = {};
-      if err then err;
       obj = JSON.parse(data)
       str = obj.pages
-      strr = obj.feature
-      combine = str.concat(strr)
-      result = JSON.stringify(combine)
-
-      # console.log(result)
-      objects.push(result)
-      # console.log object
-      index.saveObjects objects, (err, content) ->
-        # console.log(objects)
-      fs.writeFile 'listing.json', objects, (err) ->
-        if err then err;
-        console.log 'saved'
+      fs.readFile featuredJSON, 'utf8', (err, data) ->
+        obj2 = JSON.parse(data)
+        str2 = obj2.pages
+        combine = str.concat(str2)
+        result = JSON.stringify(combine)
+        # console.log result
+        objects.push(result)
+        index.clearIndex (err, content) ->
+          # console.log content
+        index.saveObjects objects, (err, content) ->
+          # console.log(objects)
+        fs.writeFile 'listing.json', objects, (err) ->
+          if err then err;
+          console.log 'saved'

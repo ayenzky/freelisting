@@ -35,7 +35,7 @@ search.on('render', function(){
   $('.list-title').createExcerpts('.short-desc',100,'...');
   $('.list').click(function(e){
    var type = $(this).find('.type').text();
-   if(type == "free"){
+   if(type == "Free"){
     e.preventDefault();
     var selected = $(this).find('.list-link').text();
     var temp = selected.replace(/\s/g, '-');

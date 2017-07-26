@@ -11,19 +11,19 @@ var client = algoliasearch("DAAAWM16TQ", "44914085bfda74e89bf571bdac1d8022");
 var index = client.initIndex('prod_FREE');
 
 
-  $input.keyup(function() {
-    index.search($input.val(), {
-      filters: 'type: featured'
-    }, searchCallback2);
-  }).focus();
+  // $input.keyup(function() {
+  //   index.search($input.val(), {
+  //     filters: 'type: Featured'
+  //   }, searchCallback2);
+  // }).focus();
 
 
   index.search({
-      filters: 'type: featured'
+      filters: 'type: Featured'
   }, searchCallback);
 
   index.search({
-      filters: 'type: free'
+      filters: 'type: Free'
   }, searchfreeCallback);
 
 

@@ -78,7 +78,7 @@ collections: # A list of collections the CMS should be able to edit
             widget: "list"
             fields:
               - {label: "Title", name: "title", widget: "string"}
-              - {label: "Type: Free", name: "type", widget: "string"}
+              - {label: "Type: Free", name: "type", widget: "free"}
               - {label: "Category", name: "categories", widget: "string"}
               - {label: "Thumbnail", name: "banner", widget: "image", media_folder: "assets/img/uploads"}
               - {label: "Main Image", name: "image", widget: "image", media_folder: "assets/img/uploads/thumb"}
