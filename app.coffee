@@ -15,7 +15,7 @@ sortBy       = require 'lodash.sortby'
 lodash       = require 'lodash'
 algoliasearch = require 'algoliasearch'
 client = algoliasearch("DAAAWM16TQ", "4711c5a5f317934bcfeb8bebd5f31ff6")
-index = client.initIndex('freelisting')
+index = client.initIndex('prod_FREE')
 freeJSON = './data/free_listing.json'
 featuredJSON = './data/featured_listing.json'
 
