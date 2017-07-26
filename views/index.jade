@@ -8,7 +8,7 @@ block content
           .clearFx
           .featured-listing.listing
             each featured in listing(records.featuredlist.pages)
-              if featured.type == "featured"
+              if featured.type == "Featured"
                 .featured-list.col.xs12.s6.m4.l3.mb-16
                   .list
                     .list-thumbnail(style="background-color:#{featured.bgcolor};")
@@ -30,7 +30,7 @@ block content
             - var i = 0;
             - var e = 0;
             each list in sorting(records.freelisting.pages)
-              if list.type == "free"
+              if list.type == "Free"
                 .lists.col.xs12.s6.m4.l3.mb-16
                   .list
                     .list-thumbnail(style="background-color:#{list.bgcolor};")

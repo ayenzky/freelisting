@@ -59,7 +59,7 @@ collections: # A list of collections the CMS should be able to edit
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Type: Featured", name: "type", widget: "featured"}
               - {label: "Category", name: "categories", widget: "string"}
-              - {label: "Main Image", name: "image", widget: "image", media_folder: "assets/uploads/thumb"}
+              - {label: "Main Image", name: "image", widget: "image", media_folder: "assets/img/uploads/thumb"}
               - {label: "Background Color", name: "bgcolor", widget: "string"}
               - {label: "Short Description", name: "shortdesc", widget: "string"}
               - {label: "Website", name: "web", widget: "string"}
@@ -80,8 +80,8 @@ collections: # A list of collections the CMS should be able to edit
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Type: Free", name: "type", widget: "free"}
               - {label: "Category", name: "categories", widget: "string"}
-              - {label: "Thumbnail", name: "banner", widget: "image", media_folder: "assets/uploads"}
-              - {label: "Main Image", name: "image", widget: "image", media_folder: "assets/uploads/thumb"}
+              - {label: "Thumbnail", name: "banner", widget: "image", media_folder: "assets/img/uploads"}
+              - {label: "Main Image", name: "image", widget: "image", media_folder: "assets/img/uploads/thumb"}
               - {label: "Background Color", name: "bgcolor", widget: "string"}
               - {label: "Adress", name: "address", widget: "string"}
               - {label: "City", name: "city", widget: "string"}
