@@ -69,24 +69,6 @@ module.exports =
     clean_urls: true
 
   after:
-      # objects = [];
-    # fs.readFile listingJSON, 'utf8', (err, data) ->
-    #   if err then err;
-    #   obj = JSON.parse(data)
-    #   str = obj.pages
-    #   strr = obj.feature
-    #   combine = str.concat(strr)
-    #   result = JSON.stringify(combine)
-
-    #   # console.log(result)
-    #   objects.push(result)
-    #   # console.log object
-    #   index.saveObjects objects, (err, content) ->
-    #     # console.log(objects)
-    #   fs.writeFile 'listing.json', objects, (err) ->
-    #     if err then err;
-    #     console.log 'saved'
-
     fs.readFile freeJSON, 'utf8', (err, data) ->
       objects = [];
       obj = JSON.parse(data)
@@ -98,10 +80,10 @@ module.exports =
         result = JSON.stringify(combine)
         # console.log result
         objects.push(result)
-        index.clearIndex (err, content) ->
+        # index.clearIndex (err, content) ->
           # console.log content
         index.saveObjects objects, (err, content) ->
-          # console.log(objects)
+          console.log(objects)
         fs.writeFile 'listing.json', objects, (err) ->
           if err then err;
           console.log 'saved'
