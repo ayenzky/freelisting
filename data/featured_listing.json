@@ -1,8 +1,8 @@
 {
   "pages": [
-    {
+      {
       "type": "Featured",
-      "categories": "Interior Design",
+      "categories": "Landscape Gardeners",
       "title": "Sunnydaze Blinds",
       "image": "/img/uploads/thumb/Sunny_Daze_Blinds.jpg",
       "shortdesc": "Quality window blinds in all of the latest styles with brilliant service and fantastic value.",
@@ -12,7 +12,7 @@
     },
     {
       "type": "Featured",
-      "categories": "Interior Design",
+      "categories": "Landscape Gardeners",
       "title": "Fortress Windows & Doors Ltd",
       "image": "/img/uploads/thumb/fortress_logo.jpg",
       "shortdesc": "Other than your home itself, home improvements is the largest investment you will make and choosing the right company to carry out these improvements are obviously very important. Double glazing in particular is always a minefield.",
@@ -22,7 +22,7 @@
     },
     {
       "type": "Featured",
-      "categories": "Mental Health Care",
+      "categories": "Professional & Business",
       "title": "Henry Training",
       "image": "/img/uploads/thumb/hendry_training.jpg",
       "shortdesc": "At Graham Hendry Training & Consultancy Services we offer bespoke training courses for businesses in Scotland and UK-wide. Talk to our team to find out which training courses suit your business requirements.",
@@ -92,7 +92,7 @@
     },
     {
       "type": "Featured",
-      "categories": "Builders",
+      "categories": "Professional & Business",
       "title": "Gebbie & Wilson",
       "image": "/img/uploads/thumb/gebbie_wilson.jpg",
       "shortdesc": "Established since 1816, Gebbie & Wilson are one of the longest practising law firms in Scotland.",

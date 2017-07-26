@@ -74,11 +74,16 @@ module.exports =
       con = {};
       if err then err;
       obj = JSON.parse(data)
-      str = JSON.stringify(obj.pages)
-      objects.push(str)
+      str = obj.pages
+      strr = obj.feature
+      combine = str.concat(strr)
+      result = JSON.stringify(combine)
+
+      # console.log(result)
+      objects.push(result)
       # console.log object
       index.saveObjects objects, (err, content) ->
-        console.log(objects)
+        # console.log(objects)
       fs.writeFile 'listing.json', objects, (err) ->
         if err then err;
         console.log 'saved'
