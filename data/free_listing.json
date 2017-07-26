@@ -4,7 +4,7 @@
       "title": "GMC Ink Toner Solutions",
       "objectID": "1",
       "type": "free",
-      "categories": "Business",
+      "categories": "business",
       "banner": "/img/uploads/gmc_big.jpg",
       "image": "/img/uploads/thumb/gmc.jpg",
       "address": "17 Whitson Avenue, Stranraer, United Kingdom, DG9 7AW",
@@ -152,7 +152,7 @@
       "banner": "/uploads/evokeleadershipbanner.jpg",
       "image": "/uploads/thumb/evokeleadershiplogo.png",
       "address": "20 Coleridge, Eastkilbride, Glasgow, Lanarkshire, G75 8RD, United Kingdom",
-      "city": "Lanarkshire",
+      "city": "Glasgow",
       "zip": "G75",
       "phone": "7784909456",
       "email": "brian@evokeleadership.co.uk",
@@ -161,6 +161,5 @@
       "postbody": "We are a cutting edge, exciting Leadership and Management Training Consultancy based in Scotland with extensive leadership and coaching experience that spans more than 70 years in the public and private sectors.\n\n\n\n"
     }
   ],
-  "updatedDate": "2017-07-26T02:04:14.361Z"
+  "updatedDate": "2017-07-26T02:24:23.434Z"
 }
-
