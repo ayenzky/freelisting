@@ -17,7 +17,7 @@ html
 
     link(rel="icon", href= records.site.sitedata[0].icon, type="image/*")
     link(rel="shortcut icon", href= records.site.sitedata[0].icon, type="img/*")
-    link(href='https://fonts.googleapis.com/css?family=PT+Sans:400,700|Roboto:300,400,500', rel='stylesheet')
+    link(href="https://fonts.googleapis.com/css?family=Hind:300,400,600,700|Montserrat:300,400,500,700" rel="stylesheet")
 
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css')
     link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
@@ -31,14 +31,15 @@ html
   body#page
 
 
-    include includes/_header
+    include includes/_headermain
     include includes/_menu
 
-    div.main-container
+    div.main
       block content
 
-    footer
-      include includes/_footer
+      footer
+        include includes/_footer
+
     script(src="https://cdn.jsdelivr.net/npm/instantsearch.js@1/dist/instantsearch.min.js")
     script(type="text/javascript", src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js")
     script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.2/isotope.pkgd.min.js')

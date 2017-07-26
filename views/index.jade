@@ -11,7 +11,7 @@ block content
               if featured.type == "featured"
                 .featured-list.col.xs12.s6.m4.l3.mb-16
                   .list
-                    .list-thumbnail
+                    .list-thumbnail(style="background-color:#{featured.bgcolor};")
                       a.details(href="http://" + featured.web, target="_blank")
                         img.lazy(src="/img/ajax-loader.svg", data-src= featured.image)
                       .blurb
@@ -33,7 +33,7 @@ block content
               if list.type == "free"
                 .lists.col.xs12.s6.m4.l3.mb-16
                   .list
-                    .list-thumbnail
+                    .list-thumbnail(style="background-color:#{list.bgcolor};")
                       a.details(href= "/list/" + slugifyText(list.title))
                         img.lazy(src="/img/ajax-loader.svg", data-src= list.image)
                       .blurb

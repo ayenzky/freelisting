@@ -21,6 +21,96 @@ html
   body
 
 
+    script(type="text/x-handlebars" data-template-name='cms/widgets/featured-control').
+      <div class="form-group">
+        {{input value="Featured" class="form-control" disabled="true"}}
+      </div>
+
+    script(type="text/x-handlebars" data-template-name='cms/widgets/free-control').
+      <div class="form-group">
+        {{input value="Free" class="form-control" disabled="true"}}
+      </div>
+
+    script(type="text/x-handlebars" data-template-name='cms/widgets/select-control').
+      <div class="form-group">
+        <select>
+            <option value="Accounts">Accounts</option>
+            <option value="Advertising">Advertising</option>
+            <option value="Architects">Architects</option>
+            <option value="Artists">Artists</option>
+            <option value="Bathroom Filters">Bathroom Filters</option>
+            <option value="Beauty Salons">Beauty Salons</option>
+            <option value="Bed and Breakfast">Bed and Breakfast</option>
+            <option value="Bookkeepers">Bookkeepers</option>
+            <option value="Builders">Builders</option>
+            <option value="Building Materials">Building Materials</option>
+            <option value="Cafe">Cafe</option>
+            <option value="Car Hire">Car Hire</option>
+            <option value="Carpenters">Carpenters</option>
+            <option value="Carpet Cleaning">Carpet Cleaning</option>
+            <option value="Catering">Catering</option>
+            <option value="Children's Services">Children's Services</option>
+            <option value="Cleaners">Cleaners</option>
+            <option value="Clothing and Accessories">Clothing and Accessories</option>
+            <option value="Complementary Therapy">Complementary Therapy</option>
+            <option value="Computer Repair">Computer Repair</option>
+            <option value="Conferences">Conferences</option>
+            <option value="Cottages">Cottages</option>
+            <option value="Couriers">Couriers</option>
+            <option value="Decorators">Decorators</option>
+            <option value="Dog Walkers">Dog Walkers</option>
+            <option value="Driving Instructors">Driving Instructors</option>
+            <option value="Education">Education</option>
+            <option value="Electricians">Electricians</option>
+            <option value="Estate Agents">Estate Agents</option>
+            <option value="Farming">Farming</option>
+            <option value="Fitness">Fitness</option>
+            <option value="Florists">Florists</option>
+            <option value="Gardeners">Gardeners</option>
+            <option value="Glaziers">Glaziers</option>
+            <option value="Graphic Design">Graphic Design</option>
+            <option value="Hairdressers">Hairdressers</option>
+            <option value="Handyman">Handyman</option>
+            <option value="Hotels">Hotels</option>
+            <option value="Hypnotherapy">Hypnotherapy</option>
+            <option value="Insurance">Insurance</option>
+            <option value="Interior Design">Interior Design</option>
+            <option value="Jewellery">Jewellery</option>
+            <option value="Kitchen Fitters">Kitchen Fitters</option>
+            <option value="Landscape Gardeners">Landscape Gardeners</option>
+            <option value="Lawyers">Lawyers</option>
+            <option value="Letting Agents">Letting Agents</option>
+            <option value="Locksmiths">Locksmiths</option>
+            <option value="Management Consultants">Management Consultants</option>
+            <option value="Manufacturing">Manufacturing</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Mental Health Care">Mental Health Care</option>
+            <option value="Mobile Discos">Mobile Discos</option>
+            <option value="Music">Music</option>
+            <option value="Parties">Parties</option>
+            <option value="Personal Finance">Personal Finance</option>
+            <option value="Personal Trainers">Personal Trainers</option>
+            <option value="Photographers">Photographers</option>
+            <option value="Plasterers">Plasterers</option>
+            <option value="Plumbers">Plumbers</option>
+            <option value="Printing">Printing</option>
+            <option value="Recruitment Agencies">Recruitment Agencies</option>
+            <option value="Removals and Relocation">Removals and Relocation</option>
+            <option value="Restaurants">Restaurants</option>
+            <option value="Solicitors">Solicitors</option>
+            <option value="Sports">Sports</option>
+            <option value="Surveyors">Surveyors</option>
+            <option value="Taxis">Taxis</option>
+            <option value="Travel Agents">Travel Agents</option>
+            <option value="Van Hire">Van Hire</option>
+            <option value="Vehicle Hire">Vehicle Hire</option>
+            <option value="Web Designers">Web Designers</option>
+            <option value="Web Development">Web Development</option>
+            <option value="Weddings">Weddings</option>
+            <option value="Window Cleaners">Window Cleaners</option>
+        </select>
+      </div>
+
     script(type="text/x-handlebars" data-template-name='cms/preview/pages').
       <div id="main-wrapper">
         <div class="main-container">
@@ -81,3 +171,8 @@ html
 
     script(src="//cms.webriq.com/assets/vendor.js")
     script(src="//cms.webriq.com/assets/cms.js")
+    script.
+      Handlebars.registerHelper('option', function(value, label, selectedValue) {
+        var selectedProperty = value == selectedValue ? 'selected="selected"' : '';
+        return new Handlebars.SafeString('<option value="' + value + '"' +  selectedProperty + '>' + label + "</option>");
+      });

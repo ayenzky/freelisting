@@ -1,53 +1,61 @@
-extends layout
+extends layout_list
 
 block script
+  script(src='//rawgithub.com/lyonlai/bootstrap-paginator/master/build/bootstrap-paginator.min.js')
   script(src='/js/html.excerpt.js')
   script(src='/js/search.js')
 
 block content
-  .container.search-page
+  .home
     .row
-      .col.l12.mt-24
-        .row
-          .col.l12
-            #results
-          .col.l3
+      .col.l12.col-right
+        div
+          input#search-input(placeholder='Search Directory')
+          // We use a specific placeholder in the input to guides users in their search.
+        .content-wrapper
+          aside
             #clear-all
-            #categories
-            h4 Filter By
-            #city
-            #zipcode
-          .col.m8.l9
-            div
-              input#search-input(placeholder='Search for products')
-              // We use a specific placeholder in the input to guides users in their search.
-            .content-wrapper
-              aside
-                #clear-all
-                section.facet-wrapper
-              .results-wrapper
-                section#results-topbar
-                  #stats.text-muted
-
-                section#pagination
-
-              .clearFx
-                #hits.isotope-container
-                  script#hit-template(type='text/html').
-                    <div class="list">
-                      <div class="list-thumbnail"><a href="{{url}}" target="_blank" class="details"><img src="{{image}}"></a></div>
-                      <div class="list-title"><a href="{{url}}" target="_blank" class="list-link">{{name}}</a>
-                        <div class="blurb"></div>
-                      </div>
-                    </div>
-
-              .clearFx
-                h1.title Featured List
-              .clearFx
+            section.facet-wrapper
+          .results-wrapper
+            .col.l12.mb-24
+              #stats
+            #hits.listing
+              script#hit-template(type='text/html').
+                <div class="list"><div class="list-thumbnail" style="background-color:{{bgcolor}}"><a href="http://{{web}}" target="_blank" class="details">
+                <img src="{{image}}"></a>
+                <div class="blurb"><p class="type {{type}}">{{type}}</p></div>
+                </div>
+                <div class="list-title">
+                <a href="http://{{web}}" target="_blank" class="list-link">{{title}}</a>
+                </div>
+                </div>
+            .clearFx
+              #hits-pagination.center-align
+          .main-wrapper
+            .clearFx
               #featured.featured-listing.listing
-                //- script#feat-template(type='text/html').
+                script#feat-template(type='text/html').
+                  <div class="list">
+                    <div class="list-thumbnail" style="background-color: {{bgcolor}}"><a href="{{url}}" target="_blank" class="details"><img src="{{image}}"></a>
+                    <div class="blurb"><p class="type {{type}}">{{type}}</p></div>
+                    </div>
+                    <div class="list-title">
+                    <a href="{{url}}" target="_blank" class="list-link">{{title}}</a>
+                    <div class="short-desc">
+                      <p>{{shortdesc}}</p>
+                    </div>
+                    </div>
+                  </div>
+              .clearFx
+                #featured-pagination.center-align
+            .clearFx.mt-32
+              .col.l12
+                h1.title <span class="red-text">Business</span> Listings
+              .clearFx
+              #freelisting.listing
+                //- script#free-template(type='text/html').
                 //-   <div class="list">
-                //-     <div class="list-thumbnail"><a href="{{url}}" target="_blank" class="details"><img src="{{image}}"></a>
+                //-     <div class="list-thumbnail" style="background-color: {{bgcolor}}"><a href="{{url}}" target="_blank" class="details"><img src="{{image}}"></a>
                 //-     <div class="blurb"><p class="type">{{type}}</p></div>
                 //-     </div>
                 //-     <div class="list-title">
@@ -58,20 +66,16 @@ block content
                 //-     </div>
                 //-   </div>
 
-              .clearFx
-                h1.title Free Listing
-              .clearFx
-              .listing
-                .isotope-container
-                  - var i = 0;
-                  - var e = 0;
-                  each list in listing(records.freelisting.pages)
-                    if list.type == "free"
-                      .lists.col.l3.isotope-item.mb-16
-                        .list
-                          .list-thumbnail
-                            a.details(href="#", data-target="modal" + (i++))
-                              img(src= list.image)
-                          .list-title
-                            a.list-link(href= "/list/" + slugifyText(list.title))= list.title
-                            //- .blurb= list.shortdesc
+                //- .isotope-container
+                //-   - var i = 0;
+                //-   - var e = 0;
+                //-   each list in listing(records.freelisting.pages)
+                //-     if list.type == "free"
+                //-       .lists.col.l4.isotope-item.mb-16
+                //-         .list
+                //-           .list-thumbnail(style="background-color:#{list.bgcolor};")
+                //-             a.details(href="#", data-target="modal" + (i++))
+                //-               img(src= list.image)
+                //-           .list-title
+                //-             a.list-link(href= "/list/" + slugifyText(list.title))= list.title
+                //-             //- .blurb= list.shortdesc

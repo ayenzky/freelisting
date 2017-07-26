@@ -1,15 +1,37 @@
 'use strict';
 /* global instantsearch */
 
-var search = instantsearch({
-  appId: 'DAAAWM16TQ',
-  apiKey: '44914085bfda74e89bf571bdac1d8022',
-  indexName: 'freelisting',
-  urlSync: false
-  // hierarchicalFacetsRefinements: {
-  //   type: ['featured']
-  // }
+var appId = 'DAAAWM16TQ';
+var apiKey = '44914085bfda74e89bf571bdac1d8022';
+var indexName = 'prod_FREE';
+$('.results-wrapper').hide();
+var search = instantsearch({appId,apiKey,indexName,
+  urlSync: false,
+  hierarchicalFacetsRefinements: {
+    type: ['featured']
+  }
 });
+
+// var isearch = instantsearch({appId,apiKey,indexName,
+//   urlSync: false,
+//   hierarchicalFacetsRefinements: {
+//     type: ['free']
+//   }
+// });
+
+// var isearch = instantsearch({appId,apiKey,indexName,
+//   urlSync: false,
+//   searchFunction: function(helper) {
+//     var searchResults = $('#hits');
+//     if (helper.state.query === '') {
+//       searchResults.hide();
+//       return;
+//     }
+//     helper.search();
+//     searchResults.show();
+//   }
+// });
+
 
 var feaTemplate = '<div class="list">'+
                   '<div class="list-thumbnail"><a href="{{url}}" target="_blank" class="details"><img src="{{image}}"></a></div>'+
@@ -29,23 +51,72 @@ var zipTemp = '<div class="c-list">'+
                     '<a href="javascript:void(0);" class="facet-item {{#isRefined}}active{{/isRefined}}">{{name}} <span class="count">({{count}})</span></a>'+
                     '</div>';
 
-// search.addWidget(
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#hits',
+    attributeName: 'type',
+    hitsPerPage: 3,
+    templates: {
+      header: 'Featured Ads',
+      item: document.getElementById('hit-template').innerHTML
+    },
+    cssClasses: {
+      item: 'featured-list col l4  mb-16'
+    }
+  })
+);
+
+// isearch.addWidget(
 //   instantsearch.widgets.hits({
-//     container: '#featured',
+//     container: '#freelisting',
 //     attributeName: 'type',
 //     templates: {
 //       header: 'Featured Ads',
-//       item: document.getElementById('feat-template').innerHTML,
+//       item: document.getElementById('free-template').innerHTML,
 //     },
 //     cssClasses: {
-//       body: 'isotope-container',
-//       item: 'featured-list col l3  mb-16 isotope-item'
+//       item: 'lists col l4  mb-16'
 //     }
 //   })
 // );
 
 search.on('render', function(){
   $('.list-title').createExcerpts('.short-desc',100,'...');
+  $('.list').click(function(e){
+   var type = $(this).find('.type').text();
+   if(type == "free"){
+    e.preventDefault();
+    var selected = $(this).find('.list-link').text();
+    var temp = selected.replace(/\s/g, '-');
+    console.log(temp)
+    var url = "/list" +"?q="+ temp.toLowerCase();
+    window.location.replace(url)
+   }
+  })
+  $("#search-input").on('keyup', function() {
+  if($(this).val().length == 0) {
+    $('.results-wrapper').hide()
+    $('.main-wrapper').show()
+
+  }else{
+    $('.results-wrapper').show()
+    $('.main-wrapper').hide()
+   }
+  });
+  $('.facet-item').click(function(e){
+    e.preventDefault();
+    $('.results-wrapper').show()
+    $('.main-wrapper').hide()
+  })
+  $('.ais-clear-all--link').click(function(e){
+    e.preventDefault();
+    $('.results-wrapper').hide()
+    $('.main-wrapper').show()
+
+  })
+
+
+
 })
 
 search.addWidget(
@@ -55,26 +126,38 @@ search.addWidget(
   })
 );
 
-search.addWidget(
-  instantsearch.widgets.stats({
-    container: '#stats'
-  })
-);
+// isearch.addWidget(
+//   instantsearch.widgets.searchBox({
+//     container: '#search-input',
+//     placeholder: 'Search a product'
+//   })
+// );
 
 search.addWidget(
-  instantsearch.widgets.hits({
-    container: '#hits',
-    hitsPerPage: 4,
-    templates: {
-      header: '<h4>Search Results</h4>',
-      item: document.getElementById('hit-template').innerHTML,
-      empty: "We didn't find any results for the search <em>\"{{query}}\"</em>",
-    },
-    cssClasses: {
-      item: 'col l3  mb-16 isotope-item'
+  instantsearch.widgets.stats({
+    container: '#stats',
+    autoHideContainer: true,
+    cssClasses:{
+      body: 'red-text',
+      time: 'grey-text text-darken-4'
     }
   })
 );
+
+// search.addWidget(
+//   instantsearch.widgets.hits({
+//     container: '#hits',
+//     templates: {
+//       header: '<h5>Search Results</h5>',
+//       item: document.getElementById('hit-template').innerHTML,
+//       empty: "We didn't find any results for the search <em>\"{{query}}\"</em>",
+//     },
+//     cssClasses: {
+//       root: 'row',
+//       item: 'col l4  mb-16'
+//     }
+//   })
+// );
 
 
 search.addWidget(
@@ -82,7 +165,6 @@ search.addWidget(
       container: '#categories',
       attributeName: 'categories',
       templates: {
-        header: '<h4>Categories</h4>',
         item: categoryTemp
       },
       cssClasses: {
@@ -100,11 +182,11 @@ search.addWidget(
     showMore: true,
     attributeName: 'city',
     templates: {
-      header: '<h5>City</h5>',
+      header: '<h6>City</h6>',
       item: cityTemp
     },
     cssClasses: {
-        header: 'city-list',
+        header: 'city-list mb-16 red-text lighten-4',
         body: 'city-list-body',
         item: 'city-list-item'
     }
@@ -116,11 +198,11 @@ search.addWidget(
     container: '#zipcode',
     attributeName: 'zip',
     templates: {
-      header: '<h5>Zipcode</h5>',
+      header: '<h6>Zipcode</h6>',
       item: zipTemp
     },
     cssClasses: {
-        header: 'zip-list',
+        header: 'zip-list mt-16 mb-16 red-text lighten-4',
         body: 'zip-list-body',
         item: 'zip-list-item'
     }
@@ -135,21 +217,12 @@ search.addWidget(
       link: '<i class="fa fa-eraser"></i> Clear all filters'
     },
     cssClasses: {
-      root: 'waves-effect waves-light btn'
+      link: 'waves-effect waves-light btn red white-text'
     },
     autoHideContainer: true
   })
 );
 
-function searchFunction(helper){
-  var searchResults = $('#hits');
-  if(helper.state.query === ""){
-    searchResults.hide();
-    return;
-  }
-  helper.search();
-  searchResults.show();
-}
 
 // search.addWidget(
 //   instantsearch.widgets.sortBySelector({
@@ -225,19 +298,19 @@ var facetTemplateColors =
 //   })
 // );
 
-// search.addWidget(
-//   instantsearch.widgets.pagination({
-//     container: '#pagination',
-//     cssClasses: {
-//       active: 'active'
-//     },
-//     labels: {
-//       previous: '<i class="fa fa-angle-left fa-2x"></i> Previous page',
-//       next: 'Next page <i class="fa fa-angle-right fa-2x"></i>'
-//     },
-//     showFirstLast: false
-//   })
-// );
+search.addWidget(
+  instantsearch.widgets.pagination({
+    container: '#hits-pagination',
+    cssClasses: {
+      active: 'active'
+    },
+    labels: {
+      previous: '<i class="material-icons">chevron_left</i>',
+      next: '<i class="material-icons">chevron_right</i>'
+    },
+    showFirstLast: false
+  })
+);
 
 // search.addWidget(
 //   instantsearch.widgets.refinementList({
@@ -364,3 +437,4 @@ var facetTemplateColors =
 // };
 
 search.start();
+// isearch.start();

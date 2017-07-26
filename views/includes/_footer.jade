@@ -3,30 +3,9 @@ footer.clearFx
 		.row
 			.col.l12
 				.welcome_msg
-					a(href="https://webriq.services/pricing") Courtesy of&nbsp;&nbsp;
+					a(href="https://webriq.services/pricing") Courtesy Of&nbsp;&nbsp;
 						img.webriqlogo(src="/img/webriqlogo.png")
-
-	style.
-		.welcome_msg{
-			float:left;
-			margin-top:24px;
-		}
-		.welcome_msg a{
-			display:block;
-			color:#222;
-		}
-		.welcome_msg .webriqlogo{
-			float:right;
-			width:150px;
-			margin-top:-10px;
-		}
 
 	!= js()
 	script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js")
-
-
-	<!-- Google Analytics -->
-	script(type="text/javascript")
-		!= records.site.sitedata[0].analytics
-
 

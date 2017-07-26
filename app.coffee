@@ -71,6 +71,7 @@ module.exports =
 
     fs.readFile listingJSON, 'utf8', (err, data) ->
       objects = [];
+      con = {};
       if err then err;
       obj = JSON.parse(data)
       str = JSON.stringify(obj.pages)

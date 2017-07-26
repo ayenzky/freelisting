@@ -1,0 +1,46 @@
+extends layout_list
+
+block script
+  script(src='/js/html.excerpt.js')
+  script(src='/js/single.js')
+
+block content
+  .single-page
+    .row
+      .col.l12.col-right
+        div
+          input#search-input(placeholder='Search for Adveritsement, Address, City, Zipcode')
+          // We use a specific placeholder in the input to guides users in their search.
+        .content-wrapper
+          aside
+            #clear-all
+            section.facet-wrapper
+          .results-wrapper
+            .col.l12.mb-24
+              #stats
+            #hits.listing
+              script#hit-template(type='text/html').
+                <div class="list"><div class="list-thumbnail" style="background-color:{{bgcolor}}"><a href="http://{{web}}" target="_blank" class="details">
+                <img src="{{image}}"></a>
+                <div class="blurb"><p class="type {{type}}">{{type}}</p></div>
+                </div>
+                <div class="list-title">
+                <a href="http://{{web}}" target="_blank" class="list-link">{{title}}</a>
+                </div>
+                </div>
+            .clearFx
+              #hits-pagination
+          .clearFx
+          #single-page
+            .list-title
+              h1.page-title
+            .row.mt-32
+              .col.s12.l6
+                .list-banner.mb-32.center-align
+                  img.lazy(src="/img/ajax-loader.svg", data-src="")
+              .col.s12.l6
+                .list-postbody
+                  .postbody
+                  #list-info.mt-24
+              .col.l12
+                #map
