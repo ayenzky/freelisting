@@ -18,14 +18,15 @@ var index = client.initIndex('prod_FREE');
   // }).focus();
 
   $.getJSON( "listing.json", function( data ) {
-    var items = [];
+    var items = '';
     var obj = JSON.stringify(data)
-    items.push(obj);
+    items += obj
     console.log(items)
     index.addObjects(items, function(err, content){
       console.log(content)
     })
   });
+
 
   index.search({
       filters: 'type: Featured'
