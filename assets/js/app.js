@@ -102,19 +102,15 @@ var index = client.initIndex('prod_FREE');
         return;
      }
 
-     var objects = [{
-      objectID: 'myID1',
-      firstname: 'Jimmie',
-      lastname: 'Barninger'
-    }, {
-      objectID: 'myID2',
-      firstname: 'Warren',
-      lastname: 'Speach'
-    }];
+      $.getJSON( "listing.json", function( data ) {
+        var items = [];
+        items.push(data)
+        console.log(items)
+        index.addObjects(items, function(err, content){
+          console.log(content)
+          })
 
-    index.addObjects(objects, function(err, content) {
-      console.log(content);
-    });
+      });
 
       for (var i = 0; i < content.hits.length; i++) {
         $users.append('<div class="featured-list col xs12 s6 m4 l4 mb-16"><div class="list">'+
