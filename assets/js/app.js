@@ -108,6 +108,9 @@ var index = client.initIndex('prod_FREE');
           items.push(val)
         })
         console.log(items)
+        index.clearIndex(function(err, content){
+          console.log(content)
+        })
         index.addObjects(items, function(err, content){
           console.log(content)
         })
