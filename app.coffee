@@ -68,6 +68,9 @@ module.exports =
   server:
     clean_urls: true
 
+  before:
+    index.clearIndex (err, content) ->
+      console.log("Index cleared!")
   after:
     fs.readFile freeJSON, 'utf8', (err, data) ->
       objects = [];
@@ -81,8 +84,7 @@ module.exports =
         result.forEach (key, val) ->
           objects.push(key)
         # console.log objects
-        # index.clearIndex (err, content) ->
-        #   console.log("Index cleared!")
+
         index.addObjects objects, (err, content) ->
           console.log("Objects added!")
         # fs.writeFile 'listing.json', objects, (err) ->
