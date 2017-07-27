@@ -102,20 +102,20 @@ var index = client.initIndex('prod_FREE');
         return;
      }
 
-      $.getJSON( "listing.json", function( data ) {
-        var items = [];
-        $.each(data, function(key, val){
-          items.push(val)
-        })
-        console.log(items)
-        index.clearIndex(function(err, content){
-          console.log(content)
-        })
-        index.addObjects(items, function(err, content){
-          console.log(content)
-        })
+      // $.getJSON( "listing.json", function( data ) {
+      //   var items = [];
+      //   $.each(data, function(key, val){
+      //     items.push(val)
+      //   })
+      //   console.log(items)
+      //   index.clearIndex(function(err, content){
+      //     console.log(content)
+      //   })
+      //   index.addObjects(items, function(err, content){
+      //     console.log(content)
+      //   })
 
-      });
+      // });
 
       for (var i = 0; i < content.hits.length; i++) {
         $users.append('<div class="featured-list col xs12 s6 m4 l4 mb-16"><div class="list">'+
