@@ -82,7 +82,7 @@ module.exports =
         objects.push(result)
         # index.clearIndex (err, content) ->
           # console.log content
-        index.saveObjects objects, (err, content) ->
+        index.addObjects objects, (err, content) ->
           console.log(content)
         fs.writeFile 'listing.json', objects, (err) ->
           if err then err;
