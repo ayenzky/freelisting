@@ -17,6 +17,15 @@ var index = client.initIndex('prod_FREE');
   //   }, searchCallback2);
   // }).focus();
 
+  $.getJSON( "listing.json", function( data ) {
+    var items = [];
+    var obj = JSON.stringify(data)
+    items.push(obj);
+    console.log(items)
+    index.addObjects(items, function(err, content){
+      console.log(content)
+    })
+  });
 
   index.search({
       filters: 'type: Featured'

@@ -79,7 +79,6 @@ jQuery(document).ready(function($){
   //       top: 20,
   //       offset: 0
   // });
-
 });
 
 function slugify(text)
