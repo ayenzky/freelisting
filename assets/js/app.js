@@ -102,15 +102,19 @@ var index = client.initIndex('prod_FREE');
         return;
      }
 
-      $.getJSON( "listing.json", function( data ) {
-        var items = [];
-        var obj = JSON.stringify(data)
-        items.push(obj)
-        console.log(items)
-        index.addObjects(items, function(err, content){
-          console.log(content)
-          })
-      });
+     var objects = [{
+      objectID: 'myID1',
+      firstname: 'Jimmie',
+      lastname: 'Barninger'
+    }, {
+      objectID: 'myID2',
+      firstname: 'Warren',
+      lastname: 'Speach'
+    }];
+
+    index.addObjects(objects, function(err, content) {
+      console.log(content);
+    });
 
       for (var i = 0; i < content.hits.length; i++) {
         $users.append('<div class="featured-list col xs12 s6 m4 l4 mb-16"><div class="list">'+
