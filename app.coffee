@@ -69,10 +69,21 @@ module.exports =
     clean_urls: true
 
   after:
-    index.saveObject({
-      firstname: 'Jimmie',
-      lastname: 'Barninger',
-      city: 'New York',
-      objectID: 'myID'
-    }, (err,content) ->
-     console.log content)
+    fs.readFile freeJSON, 'utf8', (err, data) ->
+      objects = [];
+      obj = JSON.parse(data)
+      str = obj.pages
+      fs.readFile featuredJSON, 'utf8', (err, data) ->
+        obj2 = JSON.parse(data)
+        str2 = obj2.pages
+        combine = str.concat(str2)
+        result = JSON.stringify(combine)
+        # console.log result
+        objects.push(result)
+        # index.clearIndex (err, content) ->
+          # console.log content
+        index.saveObjects objects, (err, content) ->
+          console.log(content)
+        fs.writeFile 'listing.json', objects, (err) ->
+          if err then err;
+          console.log 'saved'
