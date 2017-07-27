@@ -81,11 +81,11 @@ module.exports =
         result.forEach (key, val) ->
           objects.push(key)
 
-        console.log objects
+        # console.log objects
         index.clearIndex (err, content) ->
-          console.log content
+          console.log("Index cleared!")
         index.addObjects objects, (err, content) ->
-          console.log(content)
+          console.log("Objects added!")
         # fs.writeFile 'listing.json', objects, (err) ->
         #   if err then err;
         #   console.log 'saved'
