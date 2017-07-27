@@ -76,12 +76,12 @@ module.exports =
       fs.readFile featuredJSON, 'utf8', (err, data) ->
         obj2 = JSON.parse(data)
         str2 = obj2.pages
-        combine = str.concat(str2)
-        result = JSON.stringify(combine)
-        # console.log result
+        result = str.concat(str2)
+        # result = JSON.stringify(combine)
+        console.log result
         objects.push(result)
-        # index.clearIndex (err, content) ->
-          # console.log content
+        index.clearIndex (err, content) ->
+          console.log content
         index.addObjects objects, (err, content) ->
           console.log(content)
         fs.writeFile 'listing.json', objects, (err) ->
