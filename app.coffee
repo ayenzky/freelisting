@@ -14,7 +14,7 @@ orderBy      = require 'lodash.orderby'
 sortBy       = require 'lodash.sortby'
 lodash       = require 'lodash'
 algoliasearch = require 'algoliasearch'
-client = algoliasearch("DAAAWM16TQ", "4711c5a5f317934bcfeb8bebd5f31ff6")
+client = algoliasearch("DAAAWM16TQ", "44914085bfda74e89bf571bdac1d8022")
 index = client.initIndex('prod_FREE')
 freeJSON = './data/free_listing.json'
 featuredJSON = './data/featured_listing.json'
@@ -69,21 +69,10 @@ module.exports =
     clean_urls: true
 
   after:
-    fs.readFile freeJSON, 'utf8', (err, data) ->
-      objects = [];
-      obj = JSON.parse(data)
-      str = obj.pages
-      fs.readFile featuredJSON, 'utf8', (err, data) ->
-        obj2 = JSON.parse(data)
-        str2 = obj2.pages
-        combine = str.concat(str2)
-        result = JSON.stringify(combine)
-        # console.log result
-        objects.push(result)
-        # index.clearIndex (err, content) ->
-          # console.log content
-        index.saveObjects objects, (err, content) ->
-          console.log(objects)
-        fs.writeFile 'listing.json', objects, (err) ->
-          if err then err;
-          console.log 'saved'
+    index.saveObject({
+      firstname: 'Jimmie',
+      lastname: 'Barninger',
+      city: 'New York',
+      objectID: 'myID'
+    }, (err,content) ->
+     console.log content)
