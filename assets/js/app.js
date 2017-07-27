@@ -104,11 +104,13 @@ var index = client.initIndex('prod_FREE');
 
       $.getJSON( "listing.json", function( data ) {
         var items = [];
-        items.push(data)
+        $.each(data, function(key, val){
+          items.push(val)
+        })
         console.log(items)
         index.addObjects(items, function(err, content){
           console.log(content)
-          })
+        })
 
       });
 
