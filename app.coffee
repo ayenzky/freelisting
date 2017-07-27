@@ -80,10 +80,9 @@ module.exports =
         # result = JSON.stringify(combine)
         result.forEach (key, val) ->
           objects.push(key)
-
         # console.log objects
-        index.clearIndex (err, content) ->
-          console.log("Index cleared!")
+        # index.clearIndex (err, content) ->
+        #   console.log("Index cleared!")
         index.addObjects objects, (err, content) ->
           console.log("Objects added!")
         # fs.writeFile 'listing.json', objects, (err) ->
