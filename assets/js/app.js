@@ -17,16 +17,6 @@ var index = client.initIndex('prod_FREE');
   //   }, searchCallback2);
   // }).focus();
 
-  $.getJSON( "listing.json", function( data ) {
-    var items = '';
-    var obj = JSON.stringify(data)
-    items += obj
-    console.log(items)
-    index.addObjects(items, function(err, content){
-      console.log(content)
-    })
-  });
-
 
   index.search({
       filters: 'type: Featured'
@@ -47,7 +37,6 @@ var index = client.initIndex('prod_FREE');
     console.log(temp)
     var url = "/list" +"?q="+ temp.toLowerCase();
     window.location.replace(url)
-
     })
 
   };
@@ -112,6 +101,16 @@ var index = client.initIndex('prod_FREE');
         console.error(err);
         return;
      }
+
+      $.getJSON( "listing.json", function( data ) {
+        var items = [];
+        var obj = JSON.stringify(data)
+        items.push(obj)
+        console.log(items)
+        index.addObjects(items, function(err, content){
+          console.log(content)
+          })
+      });
 
       for (var i = 0; i < content.hits.length; i++) {
         $users.append('<div class="featured-list col xs12 s6 m4 l4 mb-16"><div class="list">'+
